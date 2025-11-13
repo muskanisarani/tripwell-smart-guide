@@ -86,19 +86,16 @@ const Login = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-primary-light via-background to-secondary/20 p-4">
-      <div className="w-full max-w-md space-y-8 rounded-2xl bg-card p-8 shadow-xl">
+    <div className="flex min-h-screen items-center justify-center bg-muted/30 p-4">
+      <div className="w-full max-w-md space-y-6 rounded-3xl bg-card p-8 shadow-lg">
         <div className="text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary">
-            <Plane className="h-8 w-8 text-primary-foreground" />
-          </div>
           <h1 className="text-3xl font-bold text-foreground">Welcome Back</h1>
-          <p className="mt-2 text-muted-foreground">Sign in to your account to continue</p>
+          <p className="mt-2 text-sm text-muted-foreground">Sign in to your account to continue</p>
         </div>
 
-        <form onSubmit={handleLogin} className="space-y-6">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Email / Phone</Label>
+            <Label htmlFor="email" className="text-sm font-medium">Email / Phone</Label>
             <Input
               id="email"
               type="email"
@@ -106,12 +103,12 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="h-12"
+              className="h-12 bg-muted/50"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password" className="text-sm font-medium">Password</Label>
             <Input
               id="password"
               type="password"
@@ -119,27 +116,41 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="h-12"
+              className="h-12 bg-muted/50"
             />
-          </div>
-
-          <div className="flex justify-end">
-            <Link
-              to="/forgot-password"
-              className="text-sm font-medium text-primary hover:underline"
-            >
-              Forgot Password?
-            </Link>
+            <div className="text-right">
+              <button type="button" className="text-xs text-primary hover:underline">
+                Forgot Password?
+              </button>
+            </div>
           </div>
 
           <Button
             type="submit"
-            className="h-12 w-full bg-primary text-lg font-semibold"
+            className="h-12 w-full rounded-lg bg-primary text-base font-semibold hover:bg-primary/90"
             disabled={loading}
           >
             {loading ? "Signing in..." : "Login"}
           </Button>
         </form>
+
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <span className="w-full border-t" />
+          </div>
+          <div className="relative flex justify-center text-xs uppercase">
+            <span className="bg-card px-2 text-muted-foreground">OR CONTINUE WITH</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <Button variant="outline" className="h-11" type="button">
+            Google
+          </Button>
+          <Button variant="outline" className="h-11" type="button">
+            Facebook
+          </Button>
+        </div>
 
         <div className="text-center text-sm text-muted-foreground">
           Don't have an account?{" "}
