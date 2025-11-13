@@ -67,19 +67,16 @@ const Register = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-primary-light via-background to-secondary/20 p-4">
-      <div className="w-full max-w-md space-y-8 rounded-2xl bg-card p-8 shadow-xl">
+    <div className="flex min-h-screen items-center justify-center bg-muted/30 p-4">
+      <div className="w-full max-w-md space-y-6 rounded-3xl bg-card p-8 shadow-lg">
         <div className="text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary">
-            <Plane className="h-8 w-8 text-primary-foreground" />
-          </div>
           <h1 className="text-3xl font-bold text-foreground">Create Account</h1>
-          <p className="mt-2 text-muted-foreground">Sign up to start your journey</p>
+          <p className="mt-2 text-sm text-muted-foreground">Sign up to start your journey</p>
         </div>
 
-        <form onSubmit={handleRegister} className="space-y-6">
+        <form onSubmit={handleRegister} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="fullName">Full Name</Label>
+            <Label htmlFor="fullName" className="text-sm font-medium">Full Name</Label>
             <Input
               id="fullName"
               type="text"
@@ -87,12 +84,12 @@ const Register = () => {
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               required
-              className="h-12"
+              className="h-12 bg-muted/50"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" className="text-sm font-medium">Email</Label>
             <Input
               id="email"
               type="email"
@@ -100,12 +97,12 @@ const Register = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="h-12"
+              className="h-12 bg-muted/50"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password" className="text-sm font-medium">Password</Label>
             <Input
               id="password"
               type="password"
@@ -113,12 +110,12 @@ const Register = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="h-12"
+              className="h-12 bg-muted/50"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="confirmPassword">Confirm Password</Label>
+            <Label htmlFor="confirmPassword" className="text-sm font-medium">Confirm Password</Label>
             <Input
               id="confirmPassword"
               type="password"
@@ -126,13 +123,13 @@ const Register = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-              className="h-12"
+              className="h-12 bg-muted/50"
             />
           </div>
 
           <Button
             type="submit"
-            className="h-12 w-full bg-primary text-lg font-semibold"
+            className="h-12 w-full rounded-lg bg-primary text-base font-semibold hover:bg-primary/90"
             disabled={loading}
           >
             {loading ? "Creating account..." : "Sign Up"}
